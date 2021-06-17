@@ -12,21 +12,25 @@ class App extends Component {
         album: null,
         artist:null,
         genre: null,
-        releaseDate: null
+        releaseDate: null,
+
+        music: null
 
     };
   }
 
   componentDidMount() {
     console.log("Component mounted!");
-    this.fetchPeople();
+    this.fetchMusic();
   }
 
-  async fetchPeople() {
+  async fetchMusic() {
     try {
       let response = await axios.get("http://www.devcodecampmusiclibrary.com/api/music");
-      this.setState({
-        music: response.data.results,
+      
+      this.setState({ 
+        music: response.data, 
+        
       });
       console.log(this.state.music);
     } catch (err) {
@@ -39,9 +43,9 @@ class App extends Component {
     console.log("Component rendered!");
     return (
       <React.Fragment>
-        <h1>{this.state.title}</h1>
+        <h1>Music library</h1>
         {this.state.music ? (
-          <PeopleList people={this.state.music} />
+          <PeopleList music={this.state.music} />
         ) : (
           <h1>Loading....</h1>
         )}
