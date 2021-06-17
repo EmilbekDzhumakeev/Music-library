@@ -1,17 +1,37 @@
 import React from "react";
+import '../../node_modules/bootstrap/dist/css/bootstrap.min.css'
 
 const PeopleList = ({ music }) => {
-  let renderedPeople = music.map((person) => {
-    return (
-      <li key={person.artist}>
-        ID: {person.id} <br></br> Release Date: {person.releaseDate}<br></br>
-        Title: {person.title} <br></br> Album: {person.album}<br></br>
-        Artist: {person.artist} <br></br> Genre: {person.genre} 
-        
-      </li>
-    );
-  });
-  return <ul>{renderedPeople}</ul>;
+  return ( 
+    <table className="table table-hover">
+    
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Album</th>
+            <th>Artist</th>
+            <th>Genre</th>
+            <th>Release Date</th>
+          </tr>
+        </thead>
+        <tbody>
+            {music.map(song=>(
+              <tr>
+                <td>{song.title}</td>
+                <td>{song.album}</td>
+                <td>{song.artist}</td>
+                <td>{song.genre}</td>
+                <td>{song.releaseDate}</td>
+              </tr>
+
+            ))}
+
+        </tbody>
+
+
+      </table>
+  )
+  
 };
 
 export default PeopleList;
