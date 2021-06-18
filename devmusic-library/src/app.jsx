@@ -4,28 +4,32 @@ import MusicList from "./components/MusicList/musicList";
 import NavBar from "./components/NavBar/navBar";
 import MusicCreator from "./components/MusicCreator/musicCreator"; 
 import "./app.css"
+import SearchBar from "./components/SearchBar/searchBar";
 
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        id: null,
-        title: null,
-        album: null,
-        artist:null,
-        genre: null,
-        releaseDate: null,
-
-        music: null
+      
+        music: [], 
+        filter: ''
 
     };
   }
+
 
   componentDidMount() {
     console.log("Component mounted!");
     this.fetchMusic();
   }
+
+  handleChange(event){
+    console.log(event);
+    this.setState({
+        filter: event.target.value
+    });
+} 
 
   async fetchMusic() {
     try {
@@ -42,15 +46,23 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.music);
-    console.log("Component rendered!");
-    return (
+    let filteredData = this.state.music.filter(song =>{
+      if(song.title.toLowerCase().includes(this.state.filter.toLocaleLowerCase()) || 
+         song.artist.toLowerCase().includes(this.state.filter.toLocaleLowerCase()) ) 
+      
+      return true;
+    } )
+    
+    return ( 
+      
       <React.Fragment>
       
         <NavBar />
+        <SearchBar handleChange = {(event)=>this.handleChange(event)}/>
+        <p>{this.state.filter}</p>
         <h1>Music library</h1>
         {this.state.music ? (
-          <MusicList music={this.state.music} />
+          <MusicList music={filteredData} />
         
         ) : (
           <h1>Loading....</h1>
