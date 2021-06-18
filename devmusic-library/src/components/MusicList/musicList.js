@@ -1,10 +1,10 @@
 import React from "react";
-import '../../node_modules/bootstrap/dist/css/bootstrap.min.css'
+import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
-const PeopleList = ({ music }) => {
+const MusicList = ({ music }) => {
   return ( 
+                  
     <table className="table table-hover">
-    
         <thead>
           <tr>
             <th>Title</th>
@@ -23,15 +23,10 @@ const PeopleList = ({ music }) => {
                 <td>{song.genre}</td>
                 <td>{song.releaseDate}</td>
               </tr>
-
             ))}
-
         </tbody>
-
-
       </table>
-  )
-  
-};
 
-export default PeopleList;
+  )
+};
+export default MusicList;

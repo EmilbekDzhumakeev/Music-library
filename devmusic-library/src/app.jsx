@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
+import MusicList from "./components/MusicList/musicList";
+import NavBar from "./components/NavBar/navBar";
+import MusicCreator from "./components/MusicCreator/musicCreator"; 
+import "./app.css"
 
-import PeopleList from "./components/PeopleList";
 
 class App extends Component {
   constructor(props) {
@@ -43,9 +46,12 @@ class App extends Component {
     console.log("Component rendered!");
     return (
       <React.Fragment>
+      
+        <NavBar />
         <h1>Music library</h1>
         {this.state.music ? (
-          <PeopleList music={this.state.music} />
+          <MusicList music={this.state.music} />
+        
         ) : (
           <h1>Loading....</h1>
         )}
