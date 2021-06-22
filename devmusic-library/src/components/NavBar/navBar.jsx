@@ -1,6 +1,6 @@
 import React from "react";
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
-
+import './navBar.css'
 
 function NavBar(props){
     return (  
@@ -9,7 +9,7 @@ function NavBar(props){
 
 <div className="navbar navbar-expand-lg navbar-dark bg-primary">
   <div className="container-fluid">
-    <a className="navbar-brand" href="#">Navbar</a>
+    <a className="navbar-brand" href="#">NavBar</a>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
@@ -22,7 +22,7 @@ function NavBar(props){
           </a>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="#">Features</a>
+          <a className="nav-link" href="#">Search By Artist</a>
         </li>
         <li className="nav-item">
           <a className="nav-link" href="#">Pricing</a>
@@ -41,10 +41,7 @@ function NavBar(props){
           </div>
         </li>
       </ul>
-      <form className="d-flex">
-        <input className="form-control me-sm-2" type="text" placeholder="Search"/>
-        <button className="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-      </form>
+      <h2> Emilbek Dz </h2>
     </div>
   </div>
 </div>

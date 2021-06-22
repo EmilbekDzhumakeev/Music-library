@@ -48,7 +48,10 @@ class App extends Component {
   render() {
     let filteredData = this.state.music.filter(song =>{
       if(song.title.toLowerCase().includes(this.state.filter.toLocaleLowerCase()) || 
-         song.artist.toLowerCase().includes(this.state.filter.toLocaleLowerCase()) ) 
+        song.album.toLowerCase().includes(this.state.filter.toLocaleLowerCase()) || 
+        song.artist.toLowerCase().includes(this.state.filter.toLocaleLowerCase())|| 
+        song.genre.toLowerCase().includes(this.state.filter.toLocaleLowerCase()) ||
+        song.releaseDate.toLowerCase().includes(this.state.filter.toLocaleLowerCase())) 
       
       return true;
     } )
@@ -59,7 +62,7 @@ class App extends Component {
       
         <NavBar />
         <SearchBar handleChange = {(event)=>this.handleChange(event)}/>
-        <p>{this.state.filter}</p>
+        
         <h1>Music library</h1>
         {this.state.music ? (
           <MusicList music={filteredData} />
