@@ -18,22 +18,22 @@ class App extends Component {
     };
   }
 
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////
   componentDidMount() {
     console.log("Component mounted!");
     this.fetchMusic();
   }
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////
   handleChange(event){
     console.log(event);
     this.setState({
         filter: event.target.value
     });
 } 
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////
   async fetchMusic() {
     try {
-      let response = await axios.get("http://www.devcodecampmusiclibrary.com/api/music");
+      let response = await axios.get("http://localhost:3000/api/songs");
       
       this.setState({ 
         music: response.data, 
@@ -44,7 +44,7 @@ class App extends Component {
       console.log(err);
     }
   }
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////
   render() {
     let filteredData = this.state.music.filter(song =>{
       if(song.title.toLowerCase().includes(this.state.filter.toLocaleLowerCase()) || 
@@ -73,6 +73,7 @@ class App extends Component {
       </React.Fragment>
     );
   }
+///////////////////////////////////////////////////////////////////////////////////////////////////////
 }
 
 export default App;

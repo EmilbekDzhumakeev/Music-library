@@ -22,13 +22,13 @@ function NavBar(props){
           </a>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="#">Search By Artist</a>
+          <a className="nav-link" href="#">Add New Song</a>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="#">Pricing</a>
+          <a className="nav-link" href="#">Update</a>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="#">About</a>
+          <a className="nav-link" href="#">Delete</a>
         </li>
         <li className="nav-item dropdown">
           <a className="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
